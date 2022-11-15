@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/animtree_node_helpers/Demo/Demo Scene.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Box Drag 1"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGBox:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -9.01553 ), Vector3( -14.6995, 0, -9.01553 ), Vector3( -14.6995, 0, -0.488188 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Box Drag 2"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGBox:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 8.93571 ), Vector3( -12.2499, 0, 8.93571 ), Vector3( -12.2499, 2.79386, 18.5999 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGBox:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CSGBox:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 3.902, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGBox:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CSGBox:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3.902, 0, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Box Drag 1"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Box Drag 1"
+
+[sub_resource type="AnimationNodeBlendTree" id=8]
+graph_offset = Vector2( -482.278, -86.7778 )
+nodes/Animation/node = SubResource( 6 )
+nodes/Animation/position = Vector2( 40, 140 )
+"nodes/Pasted Node 118004/node" = SubResource( 7 )
+"nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
+node_connections = [ "output", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -312.638, 14.4112 )
+nodes/Animation/node = SubResource( 5 )
+nodes/Animation/position = Vector2( -200, 140 )
+nodes/BlendTree/node = SubResource( 8 )
+nodes/BlendTree/position = Vector2( 0, 140 )
+node_connections = [ "output", 0, "BlendTree" ]
+
+[node name="Demo Scene" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.997682, -0.0680501, 0, 0.0680501, 0.997682, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Box Drag 1" = SubResource( 1 )
+"anims/Box Drag 2" = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true

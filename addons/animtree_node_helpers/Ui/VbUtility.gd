@@ -7,8 +7,6 @@ var _plugin:EditorPlugin
 var _inspector_plugin:EditorInspectorPlugin
 var _singleton
 
-const inspector_class = "res://addons/animtree_node_helpers/ATH_InspectorPlugin.gd"
-
 # OnReady
 onready var btn_copy := get_node("%BtnCopy")
 onready var btn_paste := get_node("%BtnPaste")

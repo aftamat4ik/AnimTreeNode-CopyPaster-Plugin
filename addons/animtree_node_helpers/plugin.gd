@@ -3,9 +3,9 @@ extends EditorPlugin
 
 var inspector_utility:EditorInspectorPlugin
 
-const inspector_utility_class = "res://addons/animtree_node_helpers/ATH_InspectorPlugin.gd"
-const refrences_singleton_class = "res://addons/animtree_node_helpers/Helpers/ATH_NodeRefrences.gd"
-const singleton_name = "ATH_AnimNodeRefrences"
+const inspector_utility_class = "res://addons/animtree_node_helpers/InspectorPlugin.gd"
+const refrences_singleton_class = "res://addons/animtree_node_helpers/Helpers/NodeRefrences.gd"
+const singleton_name = "AnimNodeRefrences"
 
 func _enter_tree():
 	if inspector_utility == null:

@@ -4,7 +4,7 @@ extends EditorInspectorPlugin
 # Refrence to owner-plugin
 var _plugin:EditorPlugin
 
-const ui_utility_class := preload("res://addons/animtree_node_helpers/Ui/ATH_Vb_Utility.tscn")
+const ui_utility_class := preload("res://addons/animtree_node_helpers/Ui/VbUtility.tscn")
 
 # We can't instanciate our UI in here
 # Since Inspector clears all it's widgets every time user switch an object

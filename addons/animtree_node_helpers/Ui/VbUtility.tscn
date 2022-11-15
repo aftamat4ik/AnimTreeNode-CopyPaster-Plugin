@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/animtree_node_helpers/Ui/ATH_Vb_Utility.gd" type="Script" id=1]
+[ext_resource path="res://addons/animtree_node_helpers/Ui/VbUtility.gd" type="Script" id=1]
 
-[node name="ATH_Vb_Utility" type="VBoxContainer"]
+[node name="Vb_Utility" type="VBoxContainer"]
 margin_right = 150.0
 margin_bottom = 34.0
 script = ExtResource( 1 )
@@ -14,6 +14,7 @@ text = "Way to copy currently selected Anim Node into selected AnimationNodeStat
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 margin_top = 120.0
 margin_right = 150.0
 margin_bottom = 140.0
@@ -36,8 +37,8 @@ text = "Paste"
 
 [node name="Lbl_BufferedNodeType" type="Label" parent="."]
 unique_name_in_owner = true
-margin_top = 144.0
+margin_top = 120.0
 margin_right = 150.0
-margin_bottom = 158.0
+margin_bottom = 134.0
 size_flags_horizontal = 3
 autowrap = true

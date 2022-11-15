@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://addons/animtree_node_helpers/Demo/Demo Scene.gd" type="Script" id=1]
 
@@ -109,13 +109,19 @@ nodes/Animation/position = Vector2( 40, 140 )
 "nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
 node_connections = [ "output", 0, "Animation" ]
 
+[sub_resource type="AnimationNodeStateMachine" id=10]
+
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -312.638, 14.4112 )
+graph_offset = Vector2( -442.638, 35.4112 )
 nodes/Animation/node = SubResource( 5 )
 nodes/Animation/position = Vector2( -200, 140 )
 nodes/BlendTree/node = SubResource( 8 )
 nodes/BlendTree/position = Vector2( 0, 140 )
+nodes/StateMachine/node = SubResource( 10 )
+nodes/StateMachine/position = Vector2( 0, 260 )
 node_connections = [ "output", 0, "BlendTree" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="Demo Scene" type="Spatial"]
 script = ExtResource( 1 )
@@ -133,3 +139,4 @@ anims/RESET = SubResource( 2 )
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
+parameters/StateMachine/playback = SubResource( 11 )

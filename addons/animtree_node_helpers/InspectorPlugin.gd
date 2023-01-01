@@ -34,3 +34,8 @@ func parse_begin(object):
 		add_custom_control(ui_instance)
 		# Call Constructor
 		ui_instance.init(_plugin, self)
+
+# Destroy ui instance if set
+func clear_instance():
+	if ui_instance != null:
+		ui_instance.queue_free()

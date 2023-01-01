@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/animtree_node_helpers/Demo/Demo Scene.gd" type="Script" id=1]
 
@@ -102,21 +102,26 @@ animation = "Idle"
 animation = "Box Drag 1"
 
 [sub_resource type="AnimationNodeBlendTree" id=8]
-graph_offset = Vector2( -482.278, -86.7778 )
+graph_offset = Vector2( -489.769, -10.8195 )
 nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( 40, 140 )
 "nodes/Pasted Node 118004/node" = SubResource( 7 )
 "nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
 node_connections = [ "output", 0, "Animation" ]
 
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Box Drag 1"
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
 
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -442.638, 35.4112 )
+graph_offset = Vector2( -552.76, -24.0376 )
 nodes/Animation/node = SubResource( 5 )
-nodes/Animation/position = Vector2( -200, 140 )
+nodes/Animation/position = Vector2( -280, 160 )
 nodes/BlendTree/node = SubResource( 8 )
 nodes/BlendTree/position = Vector2( 0, 140 )
+"nodes/Pasted Node 221504/node" = SubResource( 12 )
+"nodes/Pasted Node 221504/position" = Vector2( 0, 0 )
 nodes/StateMachine/node = SubResource( 10 )
 nodes/StateMachine/position = Vector2( 0, 260 )
 node_connections = [ "output", 0, "BlendTree" ]

@@ -1,6 +1,10 @@
 tool
 extends VBoxContainer
 
+# *source files to look at
+# scene/animation/animation_node_state_machine.cpp - add_node implementation
+# /editor/plugins/animation_blend_tree_editor_plugin.cpp - rmb menu
+# /editor/plugins/animation_tree_editor_plugin.cpp - enter_editor() - dosen't exposed to gdscript so no way of refreshing from it... that's bad
 
 # Refrence to owner-plugin
 var _plugin:EditorPlugin
@@ -51,11 +55,12 @@ func on_paste():
 		# *why don't do it myself if i need so? I Have HDD on my PC and old processor
 		# it will take AGES for me to rebuild and test stuff on godot's sources using scons before committing it
 		# so i'l not do it, sorry
-		# also since now godot leading two api (gdscript + c#) even if i would do new api for the gdscript classes, it will not affect godot's c#
-		# and i tryed to compile godot with mono together with no success. 
+		# also since now godot leading two api (gdscript + c#) even if i would do exposed methods for the gdscript language
+		# it will not affect c# wrapper, probably
+		# because i tryed to compile godot with mono enabled, together, with no success. 
 		# Go and try it yourself maybe you'l have better luck on this.
 		
-		# what features are necessary for AnimationTree? (my opinion)
+		# What features are necessary for AnimationTree? (my opinion)
 		# get node name
 		# get parent
 		# get child by name
@@ -72,6 +77,7 @@ func on_paste():
 		# also we need some kind'a 2d cursor like in Blender
 		# to get it's coordinates and spawn nodes on on Vector2(0,0), but on cursor's coordinates
 		current_node.add_node("Pasted Node " + (dublicated.get_instance_id() as String), dublicated, Vector2(0,0))
+		
 		# trying to refresh
 		property_list_changed_notify()
 		_plugin.get_singleton().last_tree_node.property_list_changed_notify()

@@ -19,6 +19,7 @@ func _enter_tree():
 
 func _exit_tree():
 	if inspector_utility != null:
+		inspector_utility.clear_instance()
 		# Clear inspector_utility registration
 		remove_inspector_plugin(inspector_utility)
 	remove_autoload_singleton(singleton_name)

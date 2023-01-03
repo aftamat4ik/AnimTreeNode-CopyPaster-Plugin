@@ -16,3 +16,13 @@
  If your AnimTree's Root node is one of this nodes, you can paste in it as well, but you need to manually select tree root node by selecting `AnimationTree->TreeRoot`:
 
  ![Paste to TreeRoot](/img/PasteToAnimationTreeRoot.PNG)
+
+ ## Please read, because - There is bug in the godot editor
+ If, after pressing Paste button, node dosen't appear in AnimationTree - don't worry, it's probably there, but godot just dosen't updated tree ui. I don't know how to update it from code - trust me, i tryed a lot of stuff on this. 
+
+ So how to make pasted  node appear? 
+ Just add another node from tooltip menu and this will force engine to refresh the tree. 
+ 
+ ![Making node appear step 1](/img/HowToMakeNodeAppearStep1.PNG)
+ Then your node will appear.
+ ![Making node appear step 1](/img/HowToMakeNodeAppearStep2.PNG)

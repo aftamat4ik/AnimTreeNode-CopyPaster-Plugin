@@ -48,11 +48,12 @@ func on_paste():
 	if bnode != null and (current_node is AnimationNodeBlendTree or current_node is AnimationNodeStateMachine):
 		# since nodes are resources - we can just duplicate them
 		var dublicated = bnode.duplicate()
+		var dublicated1 = bnode.duplicate()
 		
 		# there is NO, literally NO way of getting AnimationNode name because it's not implemented!
-		# ps. hey! please, someone! fix godot's AnimationTree and AnimationNode classes already. 
-		current_node.add_node("Pasted Node " + (dublicated.get_instance_id() as String), dublicated, Vector2(0,0))
-		
+		# *ps: hey! please, someone! fix godot's AnimationTree and AnimationNode classes already.
+		var node_name = "Pasted Node " + (dublicated.get_instance_id() as String)
+		current_node.add_node(node_name, dublicated, Vector2(0,0))
 		# trying to refresh
 		# i don't know how to refresh it since no methods of douing this are exposed
 		# none of below is working
@@ -62,6 +63,8 @@ func on_paste():
 		
 		_singleton.last_tree_node.tree_root.emit_signal("tree_changed")
 		_singleton.last_tree_node.tree_root.property_list_changed_notify()
+		
+		current_node.set_node_position(node_name, Vector2(1.0,1.0))
 
 # Updates label text
 func update_states():

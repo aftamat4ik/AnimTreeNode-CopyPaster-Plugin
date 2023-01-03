@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/animtree_node_helpers/Demo/Demo Scene.gd" type="Script" id=1]
 
@@ -98,52 +98,31 @@ animation = "Box Drag 1"
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
-animation = "Box Drag 1"
-
 [sub_resource type="AnimationNodeBlendTree" id=8]
-graph_offset = Vector2( -489.769, -10.8195 )
+graph_offset = Vector2( -495.769, -77.8195 )
 nodes/Animation/node = SubResource( 6 )
-nodes/Animation/position = Vector2( 40, 140 )
-"nodes/Pasted Node 118004/node" = SubResource( 7 )
-"nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
+nodes/Animation/position = Vector2( 0, 140 )
 node_connections = [ "output", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Box Drag 1"
 
-[sub_resource type="AnimationNodeBlendTree" id=14]
+[sub_resource type="AnimationNodeBlendTree" id=13]
 graph_offset = Vector2( -489.769, -10.8195 )
 nodes/Animation/node = SubResource( 6 )
-nodes/Animation/position = Vector2( 40, 140 )
-"nodes/Pasted Node 118004/node" = SubResource( 7 )
-"nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
+nodes/Animation/position = Vector2( 0, 140 )
 node_connections = [ "output", 0, "Animation" ]
-
-[sub_resource type="AnimationNodeBlendTree" id=15]
-graph_offset = Vector2( -489.769, -10.8195 )
-nodes/Animation/node = SubResource( 6 )
-nodes/Animation/position = Vector2( 40, 140 )
-"nodes/Pasted Node 118004/node" = SubResource( 7 )
-"nodes/Pasted Node 118004/position" = Vector2( -300, 80 )
-node_connections = [ "output", 0, "Animation" ]
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Box Drag 1"
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
-"states/Pasted Node 27416/node" = SubResource( 14 )
-"states/Pasted Node 27416/position" = Vector2( 286, 3 )
-"states/Pasted Node 30643/node" = SubResource( 15 )
-"states/Pasted Node 30643/position" = Vector2( -6, -57 )
-"states/Pasted Node 34245/node" = SubResource( 16 )
-"states/Pasted Node 34245/position" = Vector2( -6, 79 )
+"states/Pasted Node 102720/node" = SubResource( 13 )
+"states/Pasted Node 102720/position" = Vector2( 1, 1 )
+start_node = "Pasted Node 102720"
 graph_offset = Vector2( -207, -109 )
 
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -548.306, -58.9045 )
+graph_offset = Vector2( -429.773, -24.6822 )
 nodes/Animation/node = SubResource( 5 )
-nodes/Animation/position = Vector2( -280, 160 )
+nodes/Animation/position = Vector2( -280, 140 )
 nodes/BlendTree/node = SubResource( 8 )
 nodes/BlendTree/position = Vector2( 0, 140 )
 "nodes/Pasted Node 221504/node" = SubResource( 12 )

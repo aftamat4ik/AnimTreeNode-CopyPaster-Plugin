@@ -63,8 +63,6 @@ func on_paste():
 		
 		_singleton.last_tree_node.tree_root.emit_signal("tree_changed")
 		_singleton.last_tree_node.tree_root.property_list_changed_notify()
-		
-		current_node.set_node_position(node_name, Vector2(1.0,1.0))
 
 # Updates label text
 func update_states():

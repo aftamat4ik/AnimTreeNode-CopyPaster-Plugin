@@ -24,5 +24,7 @@
  Just add another node from tooltip menu and this will force engine to refresh the tree. 
  
  ![Making node appear step 1](/img/HowToMakeNodeAppearStep1.PNG)
+ 
  Then your node will appear.
+ 
  ![Making node appear step 1](/img/HowToMakeNodeAppearStep2.PNG)

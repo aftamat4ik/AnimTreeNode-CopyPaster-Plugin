@@ -46,42 +46,22 @@ func on_paste():
 	var bnode = get_buffer_node()
 	var current_node = get_current_node()
 	if bnode != null and (current_node is AnimationNodeBlendTree or current_node is AnimationNodeStateMachine):
+		# since nodes are resources - we can just duplicate them
 		var dublicated = bnode.duplicate()
 		
 		# there is NO, literally NO way of getting AnimationNode name because it's not implemented!
-		# hey! please, someone! fix godot's AnimationTree and AnimationNode classes already. 
-		# Commit some changes in there.
-		# AnimationTree api is not feature complete. It's ... like in early alpha stage right now
-		# *why don't do it myself if i need so? I Have HDD on my PC and old processor
-		# it will take AGES for me to rebuild and test stuff on godot's sources using scons before committing it
-		# so i'l not do it, sorry
-		# also since now godot leading two api (gdscript + c#) even if i would do exposed methods for the gdscript language
-		# it will not affect c# wrapper, probably
-		# because i tryed to compile godot with mono enabled, together, with no success. 
-		# Go and try it yourself maybe you'l have better luck on this.
-		
-		# What features are necessary for AnimationTree? (my opinion)
-		# get node name
-		# get parent
-		# get child by name
-		# get list of child nodes
-		# automatic registration of custom nodes inherited from AnimationNode on Animation Tree's RMB menu
-		# splitting that menu to categories, such as
-		# blends -> blend2, blend3
-		# additives -> Add2, Add3
-		# and so on
-		# and ofcourse categories are Enum E_AnimationNodeCategory: blends, additives, animation, misc
-		# ofcourse custom nodes that extend AnimationNode class should have function:
-		# _get_category_id->E_AnimationNodeCategory
-		# by overriding it user can specify in which category this node will appear
-		# also we need some kind'a 2d cursor like in Blender
-		# to get it's coordinates and spawn nodes on on Vector2(0,0), but on cursor's coordinates
+		# ps. hey! please, someone! fix godot's AnimationTree and AnimationNode classes already. 
 		current_node.add_node("Pasted Node " + (dublicated.get_instance_id() as String), dublicated, Vector2(0,0))
 		
 		# trying to refresh
+		# i don't know how to refresh it since no methods of douing this are exposed
+		# none of below is working
 		property_list_changed_notify()
-		_plugin.get_singleton().last_tree_node.property_list_changed_notify()
-		_plugin.get_singleton().last_tree_node.emit_changed()
+		#get_last_tree_node().property_list_changed_notify()
+		#get_last_tree_node().emit_changed()
+		
+		_singleton.last_tree_node.tree_root.emit_signal("tree_changed")
+		_singleton.last_tree_node.tree_root.property_list_changed_notify()
 
 # Updates label text
 func update_states():
